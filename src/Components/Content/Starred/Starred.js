@@ -18,7 +18,13 @@ function Starred() {
   //   };
   const email = useSelector((state) => state.searchReducer);
   const starredId = useSelector((state) => state.starredReducer);
-  const starredData = email.filter((val) => starredId.includes(val.id));
+  let starredData = email.filter((val) => starredId.includes(val.id));
+  for (let i = 0; i < starredData.length; i++) {
+    starredData[i].starred = !starredData[i].starred;
+  }
+  // starredData = starredData.forEach((val) => {
+  //   return (val.starred = true);
+  // });
 
   // let starredData = [];
   // starredId.forEach((element) => {
@@ -32,7 +38,7 @@ function Starred() {
   console.log(starredData);
   return (
     <div>
-      <Pagination data={starredData} dataLimit={50} currentPage={currentPage} />
+      <Pagination data={starredData} dataLimit={10} currentPage={currentPage} />
     </div>
   );
 }

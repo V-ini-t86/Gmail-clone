@@ -6,17 +6,41 @@
   display: flex;
   flex-direction: column;
   background: white;
-  padding: 20px;
+  width: 400px;
+  border: 1px solid #f1f1f1;
+  box-shadow: 1px 1px 7px 0px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 .form > input {
   padding: 7px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin: 10px;
+  outline: none;
+  border: 1px solid #f1f1f1;
+  border-top: none;
+  border-right: none;
+  border-left: none;
 }
 .description {
   min-height: 30vh;
   overflow-y: auto;
+  margin: 10px;
+  outline: none;
+  border: 1px solid #f1f1f1;
 }
 .form > button {
-  margin-top: 10px;
+  margin: 10px;
+}
+.headerForm {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background: black;
+  color: white;
+  font-weight: 300;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+.cross {
+  cursor: pointer;
 }

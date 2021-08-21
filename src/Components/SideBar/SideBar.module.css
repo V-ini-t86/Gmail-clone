@@ -1,5 +1,56 @@
 .sidebar {
   margin: 10px 0px;
-  /* position: fixed;
-  width: 100px; */
+  /* position: fixed; */
+  /* background-color: white;  */
+}
+.meet {
+  padding: 10px 10px 10px 0px;
+}
+.meet > h5 {
+  margin-left: 20px;
+}
+
+.meet > p {
+  padding: 5px;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding-left: 20px;
+}
+.meet > p:hover {
+  background-color: #f1f3f4;
+  border-top-right-radius: 40px;
+  border-bottom-right-radius: 40px;
+}
+
+.meet > p > span {
+  margin-right: 10px;
+}
+.hangout {
+  padding: 10px 10px 10px 0px;
+}
+.hangout > h5 {
+  margin-left: 20px;
+}
+.hangout > p {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+.name {
+  display: flex;
+  align-items: center;
+}
+.name > span {
+  margin-left: 10px;
+}
+.plus {
+  margin-right: 20px;
+  cursor: pointer;
+}
+.plus:hover {
+  background-color: #f1f3f4;
 }

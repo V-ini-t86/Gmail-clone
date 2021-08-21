@@ -24,3 +24,27 @@
   padding: 5px 10px;
   padding-left: 0;
 }
+.link {
+  color: black;
+  text-decoration: none;
+}
+.link > li {
+  padding: 7px;
+  display: flex;
+  align-items: center;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  font-weight: bold;
+}
+
+.link > li:hover {
+  background-color: #f1f3f4;
+}
+.link li > svg {
+  width: 1.5em;
+  height: 1.5em;
+  margin-right: 25px;
+}
+.linkR {
+  color: red;
+}

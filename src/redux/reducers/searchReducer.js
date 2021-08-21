@@ -16,6 +16,25 @@ const searchReducer = (state = gmailData, action) => {
     case "EMPTY":
       console.log("skdalfj");
       return gmailData;
+    case "DELETE_SINGLE":
+      const id = action.id;
+      const unDeleted = state.filter((val) => {
+        return val.id !== id;
+      });
+      return unDeleted;
+    case "DELETE_MULTIPLE":
+      let dIds = action.id;
+      const multiDeleteData = state.filter((val) => {
+        return !dIds.includes(val.id);
+      });
+      return multiDeleteData;
+    case "ALL_SELECT":
+      state.forEach((val, i) => {
+        if (i < 17) {
+          val.inbox = true;
+        }
+      });
+      return state;
     default:
       return state;
   }

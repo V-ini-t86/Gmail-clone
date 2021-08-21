@@ -1,5 +1,6 @@
 .list:hover {
   box-shadow: 5px 5px 10px 5px rgb(226 232 236 / 50%);
+  cursor: pointer;
 }
 .svg {
   width: 1.3em;
@@ -21,6 +22,19 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
+}
+.info {
+  display: grid;
+  grid-template-columns: 200px auto;
+}
+.info > h3 {
+  font-weight: 500;
+  font-size: 1.2rem;
+  margin-left: 20px;
+}
+.info > h4 {
+  margin-left: 40px;
+  /* flex-grow: 3; */
 }
 .company > h3 {
   font-weight: 500;

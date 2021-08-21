@@ -4,9 +4,12 @@ import { useDispatch } from "react-redux";
 import { useState } from "react";
 import search from "../Images/search.png";
 import { dataReset, searchResult } from "../../../redux/action/search";
+import { BsSearch } from "react-icons/bs";
+import { unmountComponentAtNode } from "react-dom";
 
 function SearchBar() {
   const [searchText, setSearchText] = useState("");
+  const [searchBarWhite, setSearchBarWhite] = useState(false);
   const dispatch = useDispatch();
   const gatherSearchData = (e) => {
     e.preventDefault();
@@ -21,17 +24,25 @@ function SearchBar() {
       dispatch(searchResult(searchText));
     }
   };
+  const searchBarHandler = (e) => {
+    setSearchBarWhite(true);
+  };
   // console.log(searchText);
   return (
-    <form onSubmit={handlingSearch} className={classes.form}>
+    <form
+      onSubmit={handlingSearch}
+      onClick={searchBarHandler}
+      className={classes.form}
+    >
       <div className={classes.search}>
-        <img className={classes.searchIcon} src={search} alt="search" />
+        {/* <img className={classes.searchIcon} src={search} alt="search" /> */}
+        <BsSearch className={classes.searchIcon} />
         <input
-          onke
           value={searchText}
           onChange={gatherSearchData}
           className={classes.input}
           type="text"
+          placeholder="Search mail"
         />
       </div>
     </form>

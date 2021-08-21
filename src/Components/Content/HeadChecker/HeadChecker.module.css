@@ -1,8 +1,13 @@
-.head {
+/* .head {
   display: flex;
   justify-content: space-between;
+} */
+.headchecker {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
 }
-
 .headchecker > button {
   cursor: pointer;
   padding: 10px;
@@ -17,4 +22,32 @@
 
 .headchecker > button > img {
   width: 14px;
+}
+.leftRight > button {
+  cursor: pointer;
+  padding: 10px;
+  background: none;
+  border: none;
+  margin: 0px 10px;
+  border-radius: 50%;
+}
+.leftRight > button > img {
+  width: 14px;
+}
+.leftRight {
+}
+
+.leftRight1 > button {
+  cursor: pointer;
+  padding: 10px;
+  background: none;
+  border: none;
+  margin: 0px 10px;
+  border-radius: 50%;
+}
+.leftRight1 > button > img {
+  width: 14px;
+}
+.leftRight1 {
+  flex-grow: 2;
 }

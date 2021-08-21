@@ -5,6 +5,7 @@
 .body {
   display: grid;
   grid-template-columns: 296px 1fr;
+  margin-top: 90px;
 }
 hr {
   border-top: 1px solid #f1f1f1;

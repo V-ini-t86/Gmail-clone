@@ -3,6 +3,9 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  position: fixed;
+  background: white;
+  width: 100%;
 }
 
 .menuBrand {

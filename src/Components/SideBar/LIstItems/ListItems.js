@@ -1,43 +1,71 @@
 import React from "react";
 import classes from "./ListItem.module.css";
-import mail from "../Images/mail-inbox-app.png";
-import star from "../Images/pointed-star.png";
-import snooze from "../Images/snooze.png";
-import sent from "../Images/right-arrow.png";
-import draft from "../Images/notes.png";
+import { GrStar } from "react-icons/gr";
+import { BiAlarmSnooze, BiSend } from "react-icons/bi";
+import { RiDraftLine } from "react-icons/ri";
+import { HiOutlineMail } from "react-icons/hi";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 function ListItems() {
+  const [colorRed, setColorRed] = useState(false);
+  const inboxHandler = () => {
+    setColorRed(true);
+  };
+
   return (
     <div className={classes.listItem}>
       <ul className={classes.ul}>
-        <Link to="/">
+        <Link
+          className={classes.link}
+          to="/"
+          style={{
+            color: colorRed && "red",
+          }}
+          onClick={inboxHandler}
+        >
           <li>
             {" "}
-            <img src={mail} alt="mail" /> Inbox
+            <HiOutlineMail className={classes.svg} /> Inbox
           </li>
         </Link>
-        <Link to="/starred">
+        <Link
+          onClick={() => setColorRed(false)}
+          className={classes.link}
+          to="/starred"
+        >
           <li>
             {" "}
-            <img src={star} alt="mail" /> Starred
+            <GrStar className={classes.svg} /> Starred
           </li>
         </Link>
-        <Link to="/snoozed">
+        <Link
+          onClick={() => setColorRed(false)}
+          className={classes.link}
+          to="/snoozed"
+        >
           <li>
             {" "}
-            <img src={snooze} alt="mail" /> Snoozed
+            <BiAlarmSnooze className={classes.svg} /> Snoozed
           </li>
         </Link>
-        <Link to="/sent">
+        <Link
+          onClick={() => setColorRed(false)}
+          className={classes.link}
+          to="/sent"
+        >
           <li>
             {" "}
-            <img src={sent} alt="mail" /> Sent
+            <BiSend className={classes.svg} /> Sent
           </li>
         </Link>
-        <Link to="/drafts">
+        <Link
+          onClick={() => setColorRed(false)}
+          className={classes.link}
+          to="/drafts"
+        >
           <li>
             {" "}
-            <img src={draft} alt="mail" /> Drafts
+            <RiDraftLine className={classes.svg} /> Drafts
           </li>
         </Link>
       </ul>

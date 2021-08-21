@@ -20,7 +20,10 @@ function Pagination({ data, dataLimit, currentPage }) {
             id={d.id}
             company={d.company_Name}
             description={d.description}
+            subject={d.subject}
             time={d.time}
+            star={d.starred}
+            checked={d.inbox}
           />
         );
       })}

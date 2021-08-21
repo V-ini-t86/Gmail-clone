@@ -16,9 +16,6 @@ const starredReducer = (state = [], action) => {
       return state;
     case "REMOVE":
       let id1 = action.id;
-      //   let filterData = state.filter((val, i) => {
-      //     return val !== id1;
-      //   });
       for (let i = 0; i < state.length; i++) {
         if (id1 === state[i]) {
           state.splice(i, 1);
