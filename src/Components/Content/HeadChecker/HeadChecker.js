@@ -9,17 +9,20 @@ import { useState } from "react";
 import MultipleIcons from "../SelectEmail/MultipleIcons/MultipleIcons";
 import { useDispatch, useSelector } from "react-redux";
 import { allSelect } from "../../../redux/action/search";
+import axios from "axios";
 
 function HeadChecker() {
-  const [checkBoxTick, unCheckBox] = useState(false);
-  const delMul = useSelector((state) => state.deleteReducer);
+  const obj = usePageContext();
+  const [checkBoxTick, unCheckBox] = useState(obj.tickcheck);
+  // const delMul = useSelector((state) => state.deleteReducer);
   const emailData = useSelector((state) => state.searchReducer);
   const dispatch = useDispatch();
-
+  axios().then((resp) => {
+    this.setState({ message_body: "", send_to_number: "" }); // will cause to re-render
+  });
   // emailData.forEach((element) => {
   //   element.checked = checkBoxTick;
   // });
-  const obj = usePageContext();
 
   // {delMul.length >0 ?  unCheckBox(true): unCheckBox(false)}
 
@@ -33,10 +36,7 @@ function HeadChecker() {
       console.log(emailData);
     }
   };
-  const trueCondition = () => {
-    console.log(true);
-    return true;
-  };
+
   return (
     <div className={classes.head}>
       <div className={classes.headchecker}>

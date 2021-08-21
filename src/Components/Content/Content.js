@@ -7,7 +7,6 @@ import Pagination from "./Pagination/Pagination";
 import { Switch, Route } from "react-router-dom";
 import Starred from "./Starred/Starred";
 import Snooze from "./Snooze/Snooze";
-import MailBox from "../SideBar/MailBox/MailBox";
 import SendMail from "./SendMail/SendMail";
 import SelectEmail from "./SelectEmail/SelectEmail";
 export const PageContext = createContext();
@@ -15,7 +14,6 @@ export const PageContext = createContext();
 function Content() {
   const email = useSelector((state) => state.searchReducer);
   const [currentPage, setCurrentPage] = useState(1);
-  const tickBox = [];
   const goToNextPage = () => {
     return setCurrentPage(currentPage + 1);
   };
@@ -23,8 +21,9 @@ function Content() {
   const goToPreviousPage = () => {
     return setCurrentPage(currentPage > 1 ? currentPage - 1 : currentPage);
   };
+  let tickcheck = false;
   const obj = {
-    tickBox,
+    tickcheck,
     goToNextPage,
     goToPreviousPage,
   };

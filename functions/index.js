@@ -25,7 +25,7 @@ exports.sendEmail = functions.https.onRequest((req, res) => {
   cors(req, res, () => {
     //get contact form data from the req and then assigned it to variables
     const email = req.body.email;
-    const name = req.body.name;
+    // const name = req.body.name;
     const message = req.body.message;
     const subject = req.body.subject;
 

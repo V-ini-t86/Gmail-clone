@@ -1,17 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 import Pagination from "../Pagination/Pagination";
-import classes from "./Starred.module.css";
 
 function Starred() {
-  const [currentPage, setCurrentPage] = useState(1);
-  const goToNextPage = () => {
-    return setCurrentPage(currentPage + 1);
-  };
-
-  const goToPreviousPage = () => {
-    return setCurrentPage(currentPage > 1 ? currentPage - 1 : currentPage);
-  };
   //   const obj = {
   //     goToNextPage,
   //     goToPreviousPage,
@@ -38,7 +29,7 @@ function Starred() {
   console.log(starredData);
   return (
     <div>
-      <Pagination data={starredData} dataLimit={10} currentPage={currentPage} />
+      <Pagination data={starredData} dataLimit={10} currentPage={1} />
     </div>
   );
 }

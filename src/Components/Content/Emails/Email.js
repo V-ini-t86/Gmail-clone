@@ -19,7 +19,7 @@ import {
   removeFromMultiSelect,
 } from "../../../redux/action/delete";
 
-function Email({ id, company, description, subject, time, star, checked }) {
+function Email({ id, company, description, subject, time, star, check }) {
   const [showOnHover, setShowOnHover] = useState(false);
   const [starColorShow, setStarColorShow] = useState(false);
   const [addSnooze, setAddSnooze] = useState(false);
@@ -64,14 +64,17 @@ function Email({ id, company, description, subject, time, star, checked }) {
     history.push("/mail");
   };
 
-  const clickCheckBox = (e) => {
-    if (e.target.checked === true) {
-      console.log(id);
-      dispatch(multipleDelete(id));
-    } else if (e.target.checked === false) {
-      dispatch(removeFromMultiSelect(id));
-    }
-  };
+  // const clickCheckBox = (e) => {
+  //   let checkedI = e.target.checked;
+  //   if (checkedI === true) {
+  //     console.log(checkedI);
+  //     dispatch(multipleDelete(id));
+  //     check = checkedI;
+  //   } else if (checkedI === false) {
+  //     dispatch(removeFromMultiSelect(id));
+  //     check = checkedI;
+  //   }
+  // };
 
   const deleteHandler = () => {
     dispatch(deleteSingle(id));
@@ -84,7 +87,20 @@ function Email({ id, company, description, subject, time, star, checked }) {
         className={classes.list}
       >
         <div className={classes.check}>
-          <input type="checkbox" onClick={clickCheckBox} checked={checked} />
+          <input
+            type="checkbox"
+            onChange={(e) => {
+              let checkedI = e.target.checked;
+              if (checkedI === true) {
+                console.log(checkedI);
+                dispatch(multipleDelete(id));
+                check = checkedI;
+              } else if (checkedI === false) {
+                dispatch(removeFromMultiSelect(id));
+                check = checkedI;
+              }
+            }}
+          />
           <button type="button" className={classes.button} onClick={starClick}>
             <AiOutlineStar
               className={starColorShow ? classes.svgStar : classes.svg}

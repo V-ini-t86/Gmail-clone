@@ -2,10 +2,8 @@ import React from "react";
 import classes from "./SearchBar.module.css";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
-import search from "../Images/search.png";
 import { dataReset, searchResult } from "../../../redux/action/search";
 import { BsSearch } from "react-icons/bs";
-import { unmountComponentAtNode } from "react-dom";
 
 function SearchBar() {
   const [searchText, setSearchText] = useState("");

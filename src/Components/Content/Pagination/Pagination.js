@@ -23,7 +23,7 @@ function Pagination({ data, dataLimit, currentPage }) {
             subject={d.subject}
             time={d.time}
             star={d.starred}
-            checked={d.inbox}
+            check={d.inbox}
           />
         );
       })}
