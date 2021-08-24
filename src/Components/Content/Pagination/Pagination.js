@@ -1,7 +1,7 @@
 import React from "react";
 import Email from "../Emails/Email";
 
-function Pagination({ data, dataLimit, currentPage }) {
+function Pagination({ data, dataLimit, currentPage, path }) {
   // const page = Math.round(data.length / dataLimit);
 
   const getPaginatedData = () => {
@@ -24,6 +24,7 @@ function Pagination({ data, dataLimit, currentPage }) {
             time={d.time}
             star={d.starred}
             check={d.inbox}
+            path={path}
           />
         );
       })}

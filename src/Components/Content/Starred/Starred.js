@@ -29,7 +29,12 @@ function Starred() {
   console.log(starredData);
   return (
     <div>
-      <Pagination data={starredData} dataLimit={10} currentPage={1} />
+      <Pagination
+        data={starredData}
+        dataLimit={10}
+        currentPage={1}
+        path="/starred"
+      />
     </div>
   );
 }

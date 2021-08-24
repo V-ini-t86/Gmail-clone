@@ -16,14 +16,13 @@ const starredReducer = (state = [], action) => {
       return state;
     case "REMOVE":
       let id1 = action.id;
+      console.log(state.filter((val) => val.id === id1));
       for (let i = 0; i < state.length; i++) {
         if (id1 === state[i]) {
           state.splice(i, 1);
         }
       }
-
-      console.log(state);
-      return state;
+      return [...state];
     default:
       return state;
   }

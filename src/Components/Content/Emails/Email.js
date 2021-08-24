@@ -19,7 +19,7 @@ import {
   removeFromMultiSelect,
 } from "../../../redux/action/delete";
 
-function Email({ id, company, description, subject, time, star, check }) {
+function Email({ id, company, description, subject, time, star, check, path }) {
   const [showOnHover, setShowOnHover] = useState(false);
   const [starColorShow, setStarColorShow] = useState(false);
   const [addSnooze, setAddSnooze] = useState(false);
@@ -28,18 +28,20 @@ function Email({ id, company, description, subject, time, star, check }) {
 
   const handlingShowOnOver = (e) => {
     e.stopPropagation();
-    setShowOnHover((prev) => (prev = true));
+    setShowOnHover(true);
   };
 
   const handlingShowOnOut = (e) => {
     e.stopPropagation();
-    setShowOnHover((prev) => (prev = false));
+    setShowOnHover(false);
   };
 
   const starClick = (e) => {
     e.preventDefault();
     setStarColorShow((prev) => !prev);
-    if (!starColorShow) {
+    if (path === "/starred") {
+      dispatch(removeIdIntoStarred(id));
+    } else if (!starColorShow) {
       // star = !starColorShow;
       dispatch(addIdIntoStarred(id));
     } else if (starColorShow) {
@@ -50,7 +52,9 @@ function Email({ id, company, description, subject, time, star, check }) {
 
   const snoozeHandler = (e) => {
     setAddSnooze(!addSnooze);
-    if (!addSnooze) {
+    if (path === "/snoozed") {
+      dispatch(removeIntoSnooze(id));
+    } else if (!addSnooze) {
       console.log("run");
       dispatch(addInToSnooze(id));
     } else if (addSnooze) {
@@ -83,7 +87,8 @@ function Email({ id, company, description, subject, time, star, check }) {
     <React.Fragment>
       <div
         onMouseOver={handlingShowOnOver}
-        onMouseOut={handlingShowOnOut}
+        onMouseEnter={handlingShowOnOver}
+        onMouseLeave={handlingShowOnOut}
         className={classes.list}
       >
         <div className={classes.check}>
@@ -103,7 +108,11 @@ function Email({ id, company, description, subject, time, star, check }) {
           />
           <button type="button" className={classes.button} onClick={starClick}>
             <AiOutlineStar
-              className={starColorShow ? classes.svgStar : classes.svg}
+              className={
+                starColorShow || path === "/starred"
+                  ? classes.svgStar
+                  : classes.svg
+              }
             />
           </button>
           <button className={classes.button}>
@@ -120,13 +129,13 @@ function Email({ id, company, description, subject, time, star, check }) {
           {showOnHover ? (
             <div className={classes.hideIcons}>
               <button>
-                <IoMdMailUnread />
+                <IoMdMailUnread className={classes.svg1} />
               </button>
               <button onClick={snoozeHandler}>
-                <BiAlarmSnooze />
+                <BiAlarmSnooze className={classes.svg1} />
               </button>
               <button onClick={deleteHandler}>
-                <AiFillDelete />
+                <AiFillDelete className={classes.svg1} />
               </button>
             </div>
           ) : (
