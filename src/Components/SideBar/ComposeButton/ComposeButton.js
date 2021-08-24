@@ -9,7 +9,10 @@ function ComposeButton() {
   return (
     <React.Fragment>
       <button onClick={composeHandler} className={classes.compose}>
-        <span>+</span>
+        <img
+          src="https://www.gstatic.com/images/icons/material/colored_icons/1x/create_32dp.png"
+          alt="plus"
+        />
         <h4>Compose</h4>
       </button>
       {showMail && <MailBox cross={composeHandler} />}
